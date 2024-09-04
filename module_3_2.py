@@ -1,9 +1,7 @@
 def send_email(message, recipient, *, sender="university.help@gmail.com"):
-    if '@' not in recipient:
-        if ".com" not in recipient:
-            if ".ru" not in recipient:
-                if ".net" not in recipient:
-                    print("Невозможо отправить письмо с адреса", sender, "на адрес", recipient)
+    valid_domains = ('@', ".com", ".ru", ".net")
+    if not recipient.endswith(valid_domains) and sender.andswith(valid_domains):
+        print("Невозможо отправить письмо с адреса", sender, "на адрес", recipient)
     elif "@mail.uk" in sender:
         print("Невозможно отправить письмо с адреса urban.teacher@mail.uk на адрес urban.student@mail.ru")
     elif sender == recipient:
@@ -17,3 +15,8 @@ send_email('Это сообщение для проверки связи', 'vasy
 send_email('Вы видите это сообщение как лучший студент курса!', 'urban.fan@mail.ru', sender='urban.info@gmail.com')
 send_email('Пожалуйста, исправьте задание', 'urban.student@mail.ru', sender='urban.teacher@mail.uk')
 send_email('Напоминаю самому себе о вебинаре', 'urban.teacher@mail.ru', sender='urban.teacher@mail.ru')
+
+"""variants = ('.txt', '.doc', '.pdf')
+file_name = 'report.doc'
+if file_name.endswith(variants):
+    print('Всё в порядке, формат файла соответствует!')"""
